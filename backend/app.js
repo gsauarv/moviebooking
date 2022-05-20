@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 // routes for users and movies
 import userRoutes from "./routes/userRoutes.js";
 import movieRoutes from "./routes/movieRoutes.js";
-
+import bookingRoutes from "./routes/bookingRoutes.js";
 // env config
 dotenv.config();
 
@@ -28,8 +28,10 @@ app.use(userRoutes);
 
 app.use(movieRoutes);
 
+app.use(bookingRoutes);
+
 // server listing on some port
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("Listning on https://localhost:3000");
 });

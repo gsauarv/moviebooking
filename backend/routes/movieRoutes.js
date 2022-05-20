@@ -24,4 +24,16 @@ app.post("/addMovie", async (req, res) => {
   }
 });
 
+// delete a movie
+
+app.delete("/deleteMovie/:id", async (req, res) => {
+  try {
+    const movie = await movieModel.findByIdAndDelete(req.params.id);
+    if (!movie) res.status(404).send("No Record Found");
+    res.status(200).send("Movie Deleted Successfully");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 export default app;
